@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKERHUB_TOKEN: "{{ cookiecutter.dockerhub_token }}"
+      DOCKERHUB_TOKEN: dckr_pat_KygXjlmNM65AiTx9FrZwDkEyvoQ
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       GCP_TOKEN: ${{ secrets.GCP_TOKEN }}
       PROJECT_NAME: "sotoseven"
