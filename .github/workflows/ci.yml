@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      project_name:
+        description: 'Name of the project (e.g., My Cool App)'
+        required: true
+        default: 'sotoseven'
+      project_slug:
+        description: 'Slug version of the project (e.g., my_cool_app)'
+        required: true
+        default: 'sotoseven'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      DOCKERHUB_TOKEN: "{{ cookiecutter.dockerhub_token }}"
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      GCP_TOKEN: ${{ secrets.GCP_TOKEN }}
+      PROJECT_NAME: "sotoseven"
+      PROJECT_SLUG: "sotoseven"
+      DOCKERHUB_USERNAME: "alexsotoharness"
+      GKE_CLUSTER: "soto-cluster"
+      GKE_LOCATION: "us-central1"
+      GKE_PROJECT: "soto-cluster"
+      SNYK_ORG: "b4c68fa5-d1b2-451f-a162-ea2ed840727f"
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build with Maven
+        run: mvn -B clean install
+
+#      - name: Run Snyk Maven scan
+#        uses: snyk/actions/maven-3-jdk-17@master
+#        continue-on-error: true
+#        with:
+#          args: --all-projects --org=$SNYK_ORG
+#      - name: Snyk monitor (save results to dashboard)
+#        uses: snyk/actions/maven-3-jdk-17@master
+#        with:
+#          command: monitor
+#          args: --all-projects --org=$SNYK_ORG
+      - name: Log in to Docker Hub
+        run: echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+
+      - name: Build & Push Docker image
+        run: |
+          docker build -t docker.io/$DOCKERHUB_USERNAME/$PROJECT_SLUG:latest .
+          docker push docker.io/$DOCKERHUB_USERNAME/$PROJECT_SLUG:latest
+
+      - name: Run Snyk Docker scan
+        uses: snyk/actions/docker@master
+        continue-on-error: true
+        with:
+          image: docker.io/$DOCKERHUB_USERNAME/$PROJECT_SLUG:latest
+          args: --org=$SNYK_ORG
+      
+      - name: Snyk monitor (save results to dashboard)
+        uses: snyk/actions/docker@master
+        with:
+          image: docker.io/$DOCKERHUB_USERNAME/$PROJECT_SLUG:latest
+          command: monitor
+          args: --org=$SNYK_ORG
+
+#      - name: Set up GCloud auth
+#        uses: google-github-actions/auth@v2
+#        with:
+#          credentials_json: $GCP_TOKEN
+#
+#      - name: Set up GKE credentials
+#        uses: google-github-actions/get-gke-credentials@v1
+#        with:
+#          cluster_name: $GKE_CLUSTER
+#          location: $GKE_LOCATION
+#          project_id: $GKE_PROJECT
+#
+#      - name: Deploy to Kubernetes
+#        run: |
+#          kubectl apply -f k8s/deployment.yaml
+#          kubectl apply -f k8s/service.yaml

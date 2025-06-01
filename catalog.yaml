@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+projectIdentifier: soto_sandbox
+project_name: soto_sandbox
+orgIdentifier: sandbox
+org_name: Sandbox
+metadata:
+  name: sotoseven
+  description: Demo test
+#  links:
+#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
+#      title: Azure DevOps Boards
+#      icon: microsoft-azure  
+  additionalInfo:
+    tfc_current_state: ""
+    tfc_policy_check: ""
+  tags:
+    - soto
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: alexsoto-harness/sotoseven
+    snyk.io/org-id: b4c68fa5-d1b2-451f-a162-ea2ed840727f
+    snyk.io/target-id: alexsoto-harness/sotoseven
+    wiz.io/project-id: alexsoto-harness/sotoseven
+    sonarqube.org/project-key: alexsoto-harness_sotoseven
+    backstage.io/kubernetes-label-selector: 'app=sotoseven'
+spec:
+  type: service
+  owner: user:account/alejandro.soto@harness.io
+  lifecycle: sandbox
+#  dependsOn:
+#    - component:default/replace-this
+#  system: poc-system
+relations:
+  - type: ownedBy
+    targetRef: group:account/alejandro.soto@harness.io
+    target:
+      kind: user
+      namespace: account
+      name: alejandro.soto@harness.io

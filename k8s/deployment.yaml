@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sotoseven
+  labels:
+    app: sotoseven
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sotoseven
+  template:
+    metadata:
+      labels:
+        app: sotoseven
+    spec:
+      containers:
+        - name: sotoseven
+          image: docker.io/alexsotoharness/sotoseven:latest
+          ports:
+            - containerPort: 8080
