@@ -2,18 +2,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sotoseven
+  name: frauddetection
   labels:
-    app: sotoseven
+    app: frauddectection
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: sotoseven
+      app: frauddetection
   template:
     metadata:
       labels:
-        app: sotoseven
+        app: frauddetection
     spec:
       containers:
         - name: sotoseven
