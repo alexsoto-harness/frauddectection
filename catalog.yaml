@@ -7,10 +7,6 @@ org_name: Sandbox
 metadata:
   name: sotoseven
   description: Demo test
-#  links:
-#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
-#      title: Azure DevOps Boards
-#      icon: microsoft-azure  
   additionalInfo:
     tfc_current_state: ""
     tfc_policy_check: ""
@@ -38,3 +34,31 @@ relations:
       kind: user
       namespace: account
       name: alejandro.soto@harness.io
+#  links:
+#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
+#      title: Azure DevOps Boards
+#      icon: microsoft-azure  
+#  links:
+#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
+#      title: Azure DevOps Boards
+#      icon: microsoft-azure  
+#  links:
+#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
+#      title: Azure DevOps Boards
+#      icon: microsoft-azure  
+#  links:
+#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
+#      title: Azure DevOps Boards
+#      icon: microsoft-azure  
+#  links:
+#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
+#      title: Azure DevOps Boards
+#      icon: microsoft-azure  
+#  links:
+#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
+#      title: Azure DevOps Boards
+#      icon: microsoft-azure  
+#  links:
+#    - url: https://dev.azure.com/TR-Harness/Harness-POV/_workitems/recentlycreated/
+#      title: Azure DevOps Boards
+#      icon: microsoft-azure  
