@@ -1,4 +1,4 @@
-# sotoseven
+# Fraud Detection
 
 Welcome to your new Spring Boot application scaffolded using Cookiecutter! This project includes:
 
@@ -17,7 +17,7 @@ Welcome to your new Spring Boot application scaffolded using Cookiecutter! This 
 Your app starts with a simple controller located at:
 
 ```
-app/src/main/java/com/sotoseven/HelloController.java
+app/src/main/java/com/frauddetection/HelloController.java
 ```
 
 You can:
@@ -35,7 +35,7 @@ If you change the package structure:
 The `Dockerfile` assumes a Maven-built `.jar` located at:
 
 ```
-target/sotoseven.jar
+target/frauddetection.jar
 ```
 
 Ensure that the name of the JAR matches your build output, or modify the Dockerfile accordingly.
@@ -49,7 +49,7 @@ Kubernetes YAML files are in the `k8s/` directory:
 - `k8s/deployment.yaml`: change the container image name, labels, ports, and environment variables
 - `k8s/service.yaml`: modify the service type and ports as needed
 
-**Important:** Replace the image placeholder `gcr.io/YOUR_PROJECT_ID/sotoseven:latest` with your actual GCR or Artifact Registry path.
+**Important:** Replace the image placeholder `gcr.io/YOUR_PROJECT_ID/frauddetection:latest` with your actual GCR or Artifact Registry path.
 
 ---
 
