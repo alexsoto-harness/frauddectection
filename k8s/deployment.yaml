@@ -16,7 +16,9 @@ spec:
         app: frauddetection
     spec:
       containers:
-        - name: sotoseven
+          Auto Detect
+- name: "sotoseven"
+  visibility: private
           image: docker.io/alexsotoharness/sotoseven:latest
           ports:
             - containerPort: 8080
