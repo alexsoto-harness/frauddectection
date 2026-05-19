@@ -1,0 +1,12 @@
+site_name: 'Fraud Detection Service Documentation'
+repo_url: https://github.com/alexsoto-harness/frauddectection
+edit_uri: edit/main//docs
+
+nav:
+  - 'Fraud Detection Service Documentation': index.md
+  - 'Debugging & Runbooks': sub-page.md
+  - 'Code Examples': code-sample.md
+  - 'Rules & Extension Points': extensions.md
+
+plugins:
+  - techdocs-core
