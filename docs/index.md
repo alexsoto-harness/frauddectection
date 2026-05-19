@@ -108,4 +108,4 @@ flowchart TD
 
 ---
 
-For more on TechDocs, see the [Harness IDP TechDocs Overview](https://developer.harness.io/docs/category/techdocs).
+For more on TechDocs, see the [Harness IDP TechDocs Overview](https://developer.harness.io/docs/category/techdocs)
